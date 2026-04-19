@@ -3,688 +3,1081 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>FREE Photo Session Giveaway · Frankfurt</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet"/>
+<title>Monthly Giveaway · Uniquely Visual · Frankfurt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
 <style>
-:root { --accent: #ff3d6b; }
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'DM Sans',sans-serif;background:#f7f4ef;color:#111;overflow-x:hidden;cursor:none}
-.cur{width:14px;height:14px;border-radius:50%;background:var(--accent);position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:multiply}
-.cur-ring{width:42px;height:42px;border-radius:50%;border:2px solid var(--accent);position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);opacity:.45;transition:left .12s ease,top .12s ease}
-.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;background:#f7f4ef}
-.hbc{position:absolute;border-radius:50%;pointer-events:none}
-.hbc1{width:700px;height:700px;background:#ffe5ec;top:-200px;right:-150px;animation:driftA 12s ease-in-out infinite}
-.hbc2{width:400px;height:400px;background:#e8f4ff;bottom:-100px;left:-80px;animation:driftB 10s ease-in-out infinite 2s}
-.hbc3{width:250px;height:250px;background:#fff4d6;top:40%;left:30%;animation:driftA 8s ease-in-out infinite 1s}
-.hero-left{display:flex;flex-direction:column;justify-content:center;padding:80px 50px 80px 80px;position:relative;z-index:2}
-.badge{display:inline-flex;align-items:center;gap:8px;background:#111;color:#fff;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:10px 20px;border-radius:100px;margin-bottom:36px;width:fit-content;opacity:0;animation:popIn .5s cubic-bezier(.34,1.56,.64,1) .3s forwards}
-.bdot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:blink 1.5s ease-in-out infinite}
-.hero-title{font-family:'Syne',sans-serif;font-size:clamp(56px,6.5vw,92px);font-weight:800;line-height:.92;letter-spacing:-.03em;margin-bottom:28px;opacity:0;animation:slideUp .7s ease .5s forwards}
-.hero-title .l2{display:block;color:var(--accent);font-style:italic;font-weight:700;font-size:.85em}
-.hero-title .l3{display:block;font-size:.42em;font-weight:400;color:#555;letter-spacing:.02em;font-family:'DM Sans',sans-serif;margin-top:8px}
-.hero-desc{font-size:18px;line-height:1.75;color:#444;max-width:400px;margin-bottom:44px;font-weight:300;opacity:0;animation:slideUp .7s ease .7s forwards}
-.hero-btns{display:flex;flex-wrap:wrap;gap:14px;opacity:0;animation:slideUp .7s ease .9s forwards}
-.btn-main{display:inline-flex;align-items:center;gap:12px;background:var(--accent);color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:15px;letter-spacing:.03em;padding:18px 36px;border-radius:100px;text-decoration:none;border:none;cursor:none;transition:transform .2s,box-shadow .2s}
-.btn-main:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(255,61,107,.35)}
-.btn-sec{display:inline-flex;align-items:center;gap:10px;background:transparent;color:#111;font-family:'Syne',sans-serif;font-weight:700;font-size:15px;padding:18px 28px;border-radius:100px;text-decoration:none;border:2px solid #111;cursor:none;transition:background .25s,color .25s}
-.btn-sec:hover{background:#111;color:#fff}
-.hero-right{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;padding:60px 60px 60px 20px}
-.phone{width:280px;height:560px;background:#111;border-radius:40px;position:relative;box-shadow:0 40px 100px rgba(0,0,0,.18);overflow:hidden;flex-shrink:0}
-.phone-notch{width:100px;height:28px;background:#000;border-radius:0 0 16px 16px;position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:10}
-.phone-screen{position:absolute;inset:0;background:linear-gradient(160deg,#1a1a2e,#16213e,#0f3460);overflow:hidden}
-.ig-hdr{position:absolute;top:36px;left:0;right:0;padding:10px 16px;display:flex;align-items:center;gap:10px;z-index:5}
-.ig-av{width:36px;height:36px;border-radius:50%;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);padding:2px;flex-shrink:0}
-.ig-av-in{width:100%;height:100%;border-radius:50%;background:#1a1a2e;display:flex;align-items:center;justify-content:center;font-size:14px}
-.ig-nm{color:#fff;font-size:12px;font-weight:700;font-family:'Syne',sans-serif}
-.ig-fb{margin-left:auto;background:var(--accent);color:#fff;border:none;border-radius:6px;padding:5px 14px;font-size:11px;font-weight:700;font-family:'Syne',sans-serif;cursor:none}
-.ph-vis{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding-top:30px}
-.cam-circle{width:160px;height:160px;border-radius:50%;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;position:relative}
-.cam-circle::before{content:'';position:absolute;inset:10px;border-radius:50%;border:1px solid rgba(255,61,107,.3)}
-.ph-cap{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(0deg,rgba(0,0,0,.9),transparent);padding:24px 16px 20px;z-index:5}
-.ph-tags{display:flex;flex-wrap:wrap;gap:4px;margin-bottom:8px}
-.ph-tag{background:rgba(255,61,107,.25);color:#ff8fab;font-size:9px;font-family:'Syne',sans-serif;font-weight:700;padding:2px 8px;border-radius:4px}
-.ph-cap p{color:#fff;font-size:11px;line-height:1.5;font-weight:300}
-.fc{position:absolute;background:#fff;border-radius:18px;padding:14px 18px;box-shadow:0 8px 32px rgba(0,0,0,.1);font-family:'Syne',sans-serif}
-.fc1{top:15%;right:-10px;animation:floatY 5s ease-in-out infinite}
-.fc2{bottom:22%;left:-20px;animation:floatY 6s ease-in-out infinite 1.5s}
-.fc3{top:52%;right:-14px;animation:floatY 7s ease-in-out infinite .8s}
-.fc-val{font-size:22px;font-weight:800;color:#111;line-height:1}
-.fc-lbl{font-size:10px;color:#888;letter-spacing:.08em;text-transform:uppercase;margin-top:2px}
-.fc-pill{background:#fff0f3;color:var(--accent);font-size:10px;font-weight:700;padding:6px 14px;border-radius:100px;white-space:nowrap}
-.countdown{background:#111;padding:28px 80px;display:flex;align-items:center;overflow-x:auto}
-.cd-label{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:#555;letter-spacing:.15em;text-transform:uppercase;flex-shrink:0;margin-right:40px}
-.cd-units{display:flex;align-items:center;flex-shrink:0}
-.cd-unit{text-align:center;padding:0 28px}
-.cd-unit:not(:last-child){border-right:1px solid #222}
-.cd-num{display:block;font-family:'Syne',sans-serif;font-size:52px;font-weight:800;color:#fff;line-height:1;font-variant-numeric:tabular-nums}
-.cd-sep{font-size:36px;color:#333;font-family:'Syne',sans-serif;font-weight:800;padding:0 4px}
-.cd-lbl{font-size:10px;color:#555;letter-spacing:.2em;text-transform:uppercase;font-family:'Syne',sans-serif;margin-top:4px}
-.cd-loc{margin-left:auto;flex-shrink:0;background:#1e1e1e;border:1px solid #2a2a2a;color:#aaa;font-size:11px;padding:8px 18px;border-radius:100px;font-family:'Syne',sans-serif}
-.section{padding:100px 80px}
-.s-eye{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:14px}
-.s-title{font-family:'Syne',sans-serif;font-size:clamp(36px,4vw,54px);font-weight:800;line-height:1.05;letter-spacing:-.02em}
-.s-title em{font-style:italic;color:var(--accent)}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:64px}
-.step-card{background:#fff;border-radius:24px;padding:36px 28px;position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
-.step-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.08)}
-.step-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;transition:height .4s}
-.sc1::after{background:linear-gradient(90deg,#ff3d6b,#ff7a9b)}
-.sc2::after{background:linear-gradient(90deg,#5b5ef6,#9b9eff)}
-.sc3::after{background:linear-gradient(90deg,#00c896,#00e5b0)}
-.sc4::after{background:linear-gradient(90deg,#ff9900,#ffcc44)}
-.step-card:hover::after{height:6px}
-.step-num{font-family:'Syne',sans-serif;font-size:64px;font-weight:800;line-height:1;margin-bottom:20px;opacity:.08}
-.step-iw{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px}
-.si1{background:#fff0f3}.si2{background:#f0f0ff}.si3{background:#e6fff9}.si4{background:#fff8e6}
-.step-h{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;margin-bottom:10px}
-.step-p{font-size:14px;line-height:1.7;color:#666;font-weight:300}
-.ig-badge{display:inline-flex;align-items:center;gap:6px;margin-top:16px;background:#fff0f3;border:1.5px solid var(--accent);color:var(--accent);font-family:'Syne',sans-serif;font-size:10px;font-weight:700;padding:6px 14px;border-radius:100px;letter-spacing:.08em}
-.reel-sec{background:#111;padding:100px 80px;overflow:hidden}
-.reel-grid{display:grid;grid-template-columns:1fr 320px;gap:80px;align-items:center}
-.reel-text .s-title{color:#fff}
-.reel-text .s-title em{color:var(--accent)}
-.reel-text p{font-size:17px;color:#666;line-height:1.75;font-weight:300;margin-top:20px;max-width:440px}
-.reel-feats{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px}
-.rf{background:#1a1a1a;border:1px solid #222;border-radius:18px;padding:24px;transition:border-color .3s}
-.rf:hover{border-color:var(--accent)}
-.rf-num{font-family:'Syne',sans-serif;font-size:36px;font-weight:800;color:#fff;line-height:1}
-.rf-num span{color:var(--accent)}
-.rf-lbl{font-size:12px;color:#555;letter-spacing:.1em;text-transform:uppercase;margin-top:6px;font-family:'Syne',sans-serif}
-/* Reel phone / video player */
-.reel-phone{width:100%;aspect-ratio:9/16;background:#000;border-radius:28px;position:relative;overflow:hidden;border:1px solid #222}
-.reel-inner{position:absolute;inset:0;background:linear-gradient(170deg,#1a0a14,#0d0d1a,#0a1428);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px}
-.reel-bot{position:absolute;bottom:0;left:0;right:0;padding:14px 16px;background:linear-gradient(0deg,rgba(0,0,0,.85),transparent)}
-.reel-prog{width:100%;height:4px;background:rgba(255,255,255,.15);border-radius:2px;margin-bottom:10px;overflow:hidden;cursor:pointer}
-.reel-pb{height:100%;background:var(--accent);width:0%;transition:width .1s linear;border-radius:2px}
-.reel-meta{color:#fff;font-size:12px;font-family:'Syne',sans-serif;font-weight:700}
-.reel-meta span{color:var(--accent)}
-.vcenter-btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:56px;height:56px;border-radius:50%;background:var(--accent);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:transform .2s,opacity .3s;animation:pulse 2.5s ease-in-out infinite;z-index:5}
-.vcenter-btn:hover{transform:translate(-50%,-50%) scale(1.1)}
-.vdur{position:absolute;top:14px;right:14px;background:rgba(0,0,0,.65);color:#fff;font-size:10px;font-family:'Syne',sans-serif;font-weight:700;padding:4px 10px;border-radius:6px;z-index:5}
-/* Form section */
-.form-sec{padding:100px 80px;background:#fff;display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:start}
-.form-left .s-title em{color:var(--accent)}
-.form-left p{font-size:17px;color:#555;line-height:1.75;font-weight:300;margin-top:20px;margin-bottom:36px}
-.info-cards{display:flex;flex-direction:column;gap:14px}
-.ic{display:flex;align-items:flex-start;gap:16px;padding:20px;background:#f7f4ef;border-radius:16px;border-left:3px solid}
-.ic-pink{border-color:var(--accent)}.ic-blue{border-color:#5b5ef6}.ic-green{border-color:#00c896}
-.ic-icon{font-size:20px;flex-shrink:0;margin-top:2px}
-.ic h4{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;margin-bottom:4px}
-.ic p{font-size:13px;color:#666;line-height:1.5;font-weight:300}
-.ic strong{color:var(--accent)}
-.gform{display:flex;flex-direction:column;gap:18px}
-.frow{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.fg{display:flex;flex-direction:column;gap:6px}
-label{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:.12em;color:#999;text-transform:uppercase}
-input[type=text],input[type=email],select{background:#f7f4ef;border:2px solid transparent;color:#111;font-family:'DM Sans',sans-serif;font-size:16px;padding:14px 18px;border-radius:12px;outline:none;transition:border-color .25s,background .25s;width:100%;cursor:none}
-input:focus,select:focus{border-color:var(--accent);background:#fff}
-input::placeholder{color:#bbb;font-style:italic}
-select option{background:#fff;color:#111}
-.chk-row{display:flex;align-items:flex-start;gap:12px}
-.chk-row input[type=checkbox]{width:20px;height:20px;min-width:20px;accent-color:var(--accent);cursor:none;margin-top:2px}
-.chk-row label{font-family:'DM Sans',sans-serif;font-size:14px;letter-spacing:0;text-transform:none;color:#555;font-weight:300;line-height:1.6;cursor:none}
-.chk-row label a{color:var(--accent);text-underline-offset:3px}
-.err-box{background:#fff0f3;border:1.5px solid var(--accent);color:#cc2244;font-size:13px;padding:12px 18px;border-radius:12px;display:none;font-family:'Syne',sans-serif;font-weight:700}
-.err-box.show{display:block}
-.sub-btn{background:var(--accent);color:#fff;font-family:'Syne',sans-serif;font-weight:800;font-size:16px;letter-spacing:.05em;padding:20px 36px;border-radius:100px;border:none;cursor:none;width:100%;display:flex;align-items:center;justify-content:center;gap:12px;transition:transform .2s,box-shadow .2s;margin-top:8px}
-.sub-btn:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(255,61,107,.3)}
-.sub-btn:disabled{opacity:.7;transform:none}
-.ok-box{display:none;text-align:center;padding:48px 32px;background:linear-gradient(135deg,#fff0f3,#f0f0ff);border-radius:24px;border:2px dashed var(--accent)}
-.ok-box.show{display:block}
-.ok-box h3{font-family:'Syne',sans-serif;font-size:30px;font-weight:800;margin:16px 0 10px}
-.ok-box h3 em{color:var(--accent);font-style:italic}
-.ok-box p{color:#666;font-size:15px;line-height:1.7;font-weight:300}
-footer{background:#111;padding:56px 80px;display:flex;align-items:center;justify-content:space-between}
-.foot-brand{font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#fff}
-.foot-brand span{color:var(--accent)}
-.foot-links{display:flex;gap:32px;list-style:none}
-.foot-links a{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:.15em;color:#555;text-decoration:none;text-transform:uppercase;transition:color .2s}
-.foot-links a:hover{color:var(--accent)}
-.foot-copy{font-size:12px;color:#333;font-family:'Syne',sans-serif}
-@keyframes spinIcon{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
-@keyframes slideUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
-@keyframes popIn{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}
-@keyframes driftA{0%,100%{transform:translate(0,0)}33%{transform:translate(-30px,20px)}66%{transform:translate(20px,-15px)}}
-@keyframes driftB{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-30px)}}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(255,61,107,.4)}50%{box-shadow:0 0 0 16px rgba(255,61,107,0)}}
-.reveal{opacity:0;transform:translateY(36px);transition:opacity .8s ease,transform .8s ease}
-.reveal.in{opacity:1;transform:translateY(0)}
-@media(max-width:960px){
-.hero{grid-template-columns:1fr}.hero-right{display:none}.hero-left{padding:80px 32px}
-.countdown{padding:24px 32px}.section{padding:72px 32px}.steps{grid-template-columns:1fr 1fr}
-.reel-sec{padding:72px 32px}.reel-grid{grid-template-columns:1fr}
-.form-sec{grid-template-columns:1fr;padding:72px 32px;gap:52px}.frow{grid-template-columns:1fr}
-footer{flex-direction:column;gap:28px;text-align:center;padding:48px 32px}}
+/* =============================================================
+   DESIGN TOKENS
+============================================================= */
+:root {
+  --gold:      #C8972A;
+  --gold-lt:   #E6B84A;
+  --gold-pale: #F4D98A;
+  --amber:     #E07020;
+  --flame:     #FF6B2B;
+  --ink:       #060606;
+  --ink-1:     #0D0D0D;
+  --ink-2:     #141414;
+  --ink-3:     #1C1C1C;
+  --cream:     #F0EBE0;
+  --cream-50:  rgba(240,235,224,.52);
+  --cream-10:  rgba(240,235,224,.07);
+  --ease:      cubic-bezier(.22,1,.36,1);
+  --r:         14px;
+}
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0 }
+html { scroll-behavior:smooth }
+body {
+  background:var(--ink);
+  color:var(--cream);
+  font-family:'DM Sans',sans-serif;
+  font-weight:300;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* =============================================================
+   HEADER
+============================================================= */
+header {
+  position:fixed; inset:0 0 auto; z-index:300;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:15px 36px;
+  background:rgba(6,6,6,.82);
+  backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(200,151,42,.1);
+}
+.h-logo {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(1rem,2vw,1.3rem);
+  letter-spacing:.15em; color:var(--gold); text-decoration:none;
+}
+.h-ig {
+  display:flex; align-items:center; gap:7px;
+  font-size:.73rem; letter-spacing:.1em;
+  color:var(--cream-50); text-decoration:none;
+  transition:color .3s;
+}
+.h-ig:hover { color:var(--gold-lt) }
+.h-ig svg { width:15px; height:15px }
+
+/* =============================================================
+   HERO
+============================================================= */
+.hero {
+  position:relative; min-height:100svh;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  text-align:center; padding:130px 24px 100px;
+  overflow:hidden;
+}
+
+/* Atmosphere layers */
+.hero-atmo {
+  position:absolute; inset:0; z-index:1; pointer-events:none;
+  background:
+    linear-gradient(180deg,
+      rgba(6,6,6,.97) 0%,
+      rgba(6,6,6,.6)  35%,
+      rgba(6,6,6,.22) 58%,
+      rgba(6,6,6,.85) 100%),
+    radial-gradient(ellipse 70% 45% at 50% 100%, rgba(200,151,42,.22) 0%, transparent 65%),
+    radial-gradient(ellipse 38% 32% at 80% 88%,  rgba(224,112,32,.14) 0%, transparent 55%);
+}
+
+/* Ambient orbs */
+.orb { position:absolute; border-radius:50%; filter:blur(110px); pointer-events:none; z-index:0 }
+.o1  { width:700px; height:700px; top:-220px; left:-200px; background:radial-gradient(circle,rgba(200,151,42,.11),transparent 65%) }
+.o2  { width:500px; height:500px; bottom:0;   right:-160px; background:radial-gradient(circle,rgba(224,112,32,.1),transparent 65%) }
+
+/* Frankfurt Skyline wrapper */
+.skyline-wrap { position:absolute; bottom:0; left:0; right:0; z-index:0; pointer-events:none }
+.skyline-wrap svg { display:block; width:100%; height:auto }
+
+/* Hero copy */
+.hero-copy { position:relative; z-index:2 }
+
+.eyebrow {
+  font-size:.65rem; letter-spacing:.32em; text-transform:uppercase;
+  color:var(--gold); margin-bottom:20px;
+  opacity:0; animation:up .8s .15s forwards;
+}
+.h1 {
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(4.5rem,16vw,13rem);
+  line-height:.86; letter-spacing:.015em;
+  opacity:0; animation:up .9s .3s forwards;
+}
+.h1 em {
+  font-style:normal; display:block;
+  background:linear-gradient(130deg,var(--gold-pale) 0%,var(--gold) 42%,var(--amber) 82%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+.hero-sub {
+  font-family:'Cormorant Garamond',serif; font-style:italic;
+  font-size:clamp(1.05rem,2.8vw,1.6rem);
+  color:var(--cream-50); margin-top:20px; max-width:560px; line-height:1.55;
+  opacity:0; animation:up .9s .45s forwards;
+}
+.pills {
+  display:flex; flex-wrap:wrap; justify-content:center; gap:10px;
+  margin:30px 0;
+  opacity:0; animation:up .9s .6s forwards;
+}
+.pill {
+  display:inline-flex; align-items:center; gap:8px;
+  background:rgba(200,151,42,.08); border:1px solid rgba(200,151,42,.28);
+  border-radius:100px; padding:9px 20px;
+  font-size:.71rem; letter-spacing:.12em; text-transform:uppercase; color:var(--gold-lt);
+}
+.pill-dot { width:6px; height:6px; border-radius:50%; background:var(--flame); box-shadow:0 0 7px var(--flame); animation:blink 2.2s infinite }
+.hero-cta {
+  display:inline-flex; align-items:center; gap:10px;
+  background:linear-gradient(130deg,var(--gold-pale),var(--gold),var(--amber));
+  color:#000; font-family:'Bebas Neue',sans-serif; font-size:1.15rem; letter-spacing:.13em;
+  padding:16px 40px; border-radius:100px; text-decoration:none; border:none; cursor:pointer;
+  box-shadow:0 0 30px rgba(200,151,42,.32);
+  opacity:0; animation:up .9s .75s forwards, glow-btn 3s 1.6s ease-in-out infinite;
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease);
+}
+.hero-cta:hover { transform:translateY(-3px); box-shadow:0 0 55px rgba(200,151,42,.55) }
+.scroll-hint {
+  position:absolute; bottom:32px; left:50%; transform:translateX(-50%); z-index:2;
+  display:flex; flex-direction:column; align-items:center; gap:8px;
+  font-size:.59rem; letter-spacing:.22em; text-transform:uppercase; color:var(--cream-50);
+  animation:up 1s 1.2s both;
+}
+.scroll-bar { width:1px; height:50px; background:linear-gradient(to bottom,transparent,var(--gold)); animation:drip 2.2s 1.5s infinite }
+
+/* =============================================================
+   SHARED SECTION STYLES
+============================================================= */
+.sec { padding:88px 24px; position:relative }
+.sec-inner { max-width:960px; margin:0 auto }
+.sec-center { text-align:center }
+.sec-center .sec-body { margin:0 auto }
+.sec-label { font-size:.63rem; letter-spacing:.3em; text-transform:uppercase; color:var(--gold); margin-bottom:10px }
+.sec-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(2.2rem,6vw,4rem); letter-spacing:.04em; line-height:1; margin-bottom:16px }
+.sec-body { color:var(--cream-50); font-size:.9rem; line-height:1.7; max-width:520px }
+.ruled { border-top:1px solid rgba(200,151,42,.1) }
+
+/* =============================================================
+   PRIZE SECTION
+============================================================= */
+.prize-sec { background:linear-gradient(180deg,var(--ink) 0%,var(--ink-1) 100%) }
+.prize-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:18px; margin-top:46px }
+.pc {
+  background:var(--ink-2); border:1px solid rgba(200,151,42,.13); border-radius:18px;
+  padding:34px 26px; position:relative; overflow:hidden;
+  transition:border-color .4s, transform .4s var(--ease);
+}
+.pc::before {
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background:radial-gradient(ellipse 80% 50% at 50% -5%,rgba(200,151,42,.07),transparent 65%);
+}
+.pc:hover { border-color:rgba(200,151,42,.38); transform:translateY(-5px) }
+.pc-icon {
+  width:56px; height:56px; border-radius:14px; margin-bottom:20px;
+  background:linear-gradient(135deg,rgba(200,151,42,.15),rgba(224,112,32,.1));
+  border:1px solid rgba(200,151,42,.18);
+  display:flex; align-items:center; justify-content:center;
+}
+.pc-icon svg { width:26px; height:26px; stroke:var(--gold-lt); fill:none; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round }
+.pc h3 { font-family:'Bebas Neue',sans-serif; font-size:1.45rem; letter-spacing:.06em; margin-bottom:10px }
+.pc p  { font-size:.86rem; color:var(--cream-50); line-height:1.65 }
+
+/* =============================================================
+   6-MONTH TIMELINE
+============================================================= */
+.timeline-sec { background:var(--ink-1) }
+.months-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:46px }
+@media(min-width:700px){ .months-grid { grid-template-columns:repeat(6,1fr) } }
+.mc {
+  background:var(--ink-2); border:1px solid rgba(200,151,42,.1); border-radius:16px;
+  padding:22px 14px; text-align:center; position:relative; overflow:hidden;
+  transition:border-color .35s, transform .35s var(--ease);
+}
+.mc:hover { border-color:rgba(200,151,42,.3); transform:translateY(-4px) }
+.mc.active {
+  border-color:rgba(200,151,42,.45);
+  background:linear-gradient(160deg,rgba(200,151,42,.1),rgba(224,112,32,.06));
+}
+.mc.active::after {
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(to right,var(--gold),var(--amber));
+}
+.mc.done { opacity:.4 }
+.m-badge {
+  display:inline-block; font-size:.56rem; letter-spacing:.14em; text-transform:uppercase;
+  padding:3px 9px; border-radius:100px; margin-bottom:12px;
+}
+.badge-now  { background:rgba(200,151,42,.15); color:var(--gold-lt); border:1px solid rgba(200,151,42,.3) }
+.badge-open { background:rgba(90,210,130,.08); color:rgba(110,220,150,.85); border:1px solid rgba(90,210,130,.18) }
+.badge-done { background:rgba(255,255,255,.04); color:var(--cream-50); border:1px solid rgba(255,255,255,.06) }
+.m-num  { font-family:'Bebas Neue',sans-serif; font-size:2.4rem; letter-spacing:.04em; line-height:1; color:var(--cream-50) }
+.mc.active .m-num { color:var(--gold) }
+.m-name { font-size:.75rem; letter-spacing:.08em; color:var(--cream-50); margin-top:5px }
+.m-what { font-size:.66rem; color:var(--gold); margin-top:8px; letter-spacing:.03em }
+
+/* =============================================================
+   INSTAGRAM REQUIREMENT
+============================================================= */
+.req-sec {
+  background:linear-gradient(135deg,rgba(224,112,32,.06) 0%,rgba(200,151,42,.05) 100%);
+  border-top:1px solid rgba(200,151,42,.1); border-bottom:1px solid rgba(200,151,42,.1);
+}
+.req-card {
+  background:var(--ink-2); border:1px solid rgba(200,151,42,.2); border-radius:20px;
+  padding:42px 36px; display:flex; flex-direction:column; align-items:center; gap:22px;
+  max-width:640px; margin:44px auto 0; text-align:center;
+}
+.ig-blob {
+  width:70px; height:70px; border-radius:20px;
+  background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 0 36px rgba(220,39,67,.32);
+}
+.ig-blob svg { width:36px; height:36px; stroke:white; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round }
+.req-text { font-family:'Cormorant Garamond',serif; font-size:clamp(1.05rem,2.5vw,1.42rem); color:var(--cream); line-height:1.6 }
+.req-text strong { color:var(--gold-lt); font-weight:600 }
+.btn-ig {
+  display:inline-flex; align-items:center; gap:9px;
+  background:linear-gradient(135deg,#f09433,#e6683c,#dc2743);
+  color:#fff; font-size:.83rem; font-weight:500; letter-spacing:.08em;
+  text-decoration:none; padding:14px 30px; border-radius:100px;
+  transition:all .35s var(--ease); box-shadow:0 4px 24px rgba(220,39,67,.28);
+}
+.btn-ig:hover { transform:translateY(-3px); box-shadow:0 8px 36px rgba(220,39,67,.5) }
+.btn-ig svg { width:16px; height:16px }
+
+/* =============================================================
+   VIDEO SECTION  (9:16 client work sample)
+============================================================= */
+.vid-sec { background:var(--ink); padding:88px 24px }
+.vid-inner { max-width:900px; margin:0 auto; text-align:center }
+.vid-tag {
+  display:inline-block; font-size:.62rem; letter-spacing:.18em; text-transform:uppercase;
+  padding:5px 14px; border-radius:100px; margin-bottom:18px;
+  background:rgba(200,151,42,.1); border:1px solid rgba(200,151,42,.25); color:var(--gold-lt);
+}
+.vid-wrap {
+  position:relative;
+  width:min(310px,78vw);
+  margin:44px auto 0;
+  border-radius:24px; overflow:hidden;
+  border:1px solid rgba(200,151,42,.18);
+  box-shadow:
+    0 0 0 1px rgba(200,151,42,.06),
+    0 28px 90px rgba(0,0,0,.75),
+    0 0 80px rgba(200,151,42,.09);
+}
+.vid-wrap::before { content:''; display:block; padding-top:177.78% }
+.vid-wrap video {
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  display:none;
+}
+.vid-ph {
+  position:absolute; inset:0;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  background:var(--ink-3); gap:14px; color:var(--cream-50); font-size:.76rem; letter-spacing:.1em;
+}
+.vid-ph svg { width:44px; height:44px; opacity:.25 }
+.vid-label {
+  margin-top:22px;
+  font-family:'Cormorant Garamond',serif; font-style:italic;
+  font-size:.95rem; color:var(--cream-50);
+}
+
+/* =============================================================
+   FORM SECTION
+============================================================= */
+.form-sec { background:var(--ink-1); padding:90px 24px 110px }
+.form-inner { max-width:580px; margin:0 auto }
+.form-head { text-align:center; margin-bottom:48px }
+.form-card {
+  background:var(--ink-2); border:1px solid rgba(200,151,42,.15); border-radius:22px;
+  padding:clamp(28px,6vw,52px);
+  box-shadow:0 30px 90px rgba(0,0,0,.55);
+}
+.fg { display:flex; flex-direction:column; gap:6px; margin-bottom:20px }
+label { font-size:.67rem; letter-spacing:.16em; text-transform:uppercase; color:var(--gold); font-weight:500 }
+input[type=text], input[type=email] {
+  background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08);
+  border-radius:10px; padding:14px 18px;
+  font-family:'DM Sans',sans-serif; font-size:.93rem; color:var(--cream);
+  width:100%; transition:border-color .3s,box-shadow .3s; outline:none;
+}
+input[type=text]:focus, input[type=email]:focus {
+  border-color:rgba(200,151,42,.45); box-shadow:0 0 0 3px rgba(200,151,42,.07);
+  background:rgba(200,151,42,.03);
+}
+input.valid   { border-color:rgba(90,200,120,.4) }
+input.invalid { border-color:rgba(220,60,60,.45) }
+input::placeholder { color:rgba(240,235,224,.17) }
+.hint { font-size:.67rem; color:rgba(220,80,80,.8); display:none; margin-top:2px }
+.hint.show { display:block }
+
+.check-row {
+  display:flex; align-items:flex-start; gap:14px; margin-bottom:30px;
+  padding:18px; background:rgba(200,151,42,.04);
+  border:1px solid rgba(200,151,42,.14); border-radius:10px;
+}
+input[type=checkbox] {
+  appearance:none; -webkit-appearance:none;
+  width:22px; height:22px; min-width:22px;
+  border:2px solid rgba(200,151,42,.4); border-radius:6px;
+  background:transparent; cursor:pointer; margin-top:2px;
+  transition:all .25s; position:relative;
+}
+input[type=checkbox]:checked { background:var(--gold); border-color:var(--gold) }
+input[type=checkbox]:checked::after {
+  content:''; position:absolute; left:5px; top:2px;
+  width:7px; height:12px; border:2px solid #000;
+  border-top:none; border-left:none; transform:rotate(45deg);
+}
+.check-txt { font-size:.86rem; color:var(--cream-50); line-height:1.55; cursor:pointer }
+.check-txt strong { color:var(--gold-lt); font-weight:500 }
+
+.btn-sub {
+  width:100%; padding:18px 24px;
+  font-family:'Bebas Neue',sans-serif; font-size:1.35rem; letter-spacing:.14em;
+  color:#000;
+  background:linear-gradient(135deg,var(--gold-pale) 0%,var(--gold) 50%,var(--amber) 100%);
+  border:none; border-radius:12px; cursor:pointer;
+  transition:all .35s var(--ease);
+  box-shadow:0 4px 24px rgba(200,151,42,.22);
+  animation:glow-btn 3s ease-in-out infinite;
+  position:relative; overflow:hidden;
+}
+.btn-sub::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(255,255,255,.22),transparent); opacity:0; transition:opacity .3s }
+.btn-sub:hover  { transform:translateY(-3px); box-shadow:0 8px 40px rgba(200,151,42,.45) }
+.btn-sub:hover::after { opacity:1 }
+.btn-sub:disabled { opacity:.35; cursor:not-allowed; animation:none; transform:none; box-shadow:none }
+
+/* =============================================================
+   SUCCESS STATE
+============================================================= */
+.success { display:none; text-align:center; padding:46px 20px }
+.success.show { display:block }
+.suc-icon {
+  width:78px; height:78px; border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--amber));
+  display:flex; align-items:center; justify-content:center;
+  margin:0 auto 26px; box-shadow:0 0 50px rgba(200,151,42,.42);
+  animation:pop .6s var(--ease) both;
+}
+.suc-icon svg { width:34px; height:34px; stroke:#000; fill:none; stroke-width:2.5; stroke-linecap:round; stroke-linejoin:round }
+.suc-title { font-family:'Bebas Neue',sans-serif; font-size:clamp(2rem,6vw,3rem); letter-spacing:.06em; color:var(--gold-lt); margin-bottom:12px }
+.suc-text  { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.1rem; color:var(--cream-50); max-width:400px; margin:0 auto; line-height:1.65 }
+
+/* =============================================================
+   FOOTER
+============================================================= */
+footer {
+  background:var(--ink); border-top:1px solid rgba(200,151,42,.1);
+  padding:52px 24px 40px; text-align:center;
+}
+.ft-brand { font-family:'Bebas Neue',sans-serif; font-size:1.8rem; letter-spacing:.1em; color:var(--gold); margin-bottom:6px }
+.ft-city  { font-size:.72rem; letter-spacing:.2em; color:var(--cream-50); margin-bottom:26px }
+.ft-link  {
+  display:inline-flex; align-items:center; gap:6px;
+  color:var(--gold-lt); text-decoration:none; font-size:.8rem; letter-spacing:.1em;
+  transition:color .3s; margin-bottom:26px;
+}
+.ft-link:hover { color:var(--flame) }
+.ft-link svg { width:14px; height:14px }
+.ft-sep   { width:48px; height:1px; background:rgba(200,151,42,.18); margin:0 auto 22px }
+.ft-legal { font-size:.67rem; color:rgba(240,235,224,.2); letter-spacing:.05em; line-height:1.9; max-width:500px; margin:0 auto 18px }
+.ft-cr    { font-size:.64rem; color:rgba(240,235,224,.15); letter-spacing:.04em }
+
+/* =============================================================
+   SCROLL REVEAL
+============================================================= */
+.rev { opacity:0; transform:translateY(32px); transition:opacity .8s var(--ease),transform .8s var(--ease) }
+.rev.in { opacity:1; transform:none }
+.d1{transition-delay:.1s} .d2{transition-delay:.22s} .d3{transition-delay:.34s}
+.d4{transition-delay:.46s} .d5{transition-delay:.58s} .d6{transition-delay:.7s}
+
+/* =============================================================
+   KEYFRAMES
+============================================================= */
+@keyframes up   { from{opacity:0;transform:translateY(26px)} to{opacity:1;transform:none} }
+@keyframes blink{ 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.45;transform:scale(.65)} }
+@keyframes glow-btn {
+  0%,100%{box-shadow:0 0 16px rgba(200,151,42,.28)}
+  50%    {box-shadow:0 0 40px rgba(200,151,42,.55),0 0 70px rgba(224,112,32,.18)}
+}
+@keyframes drip {
+  0%   {transform:scaleY(0);transform-origin:top;opacity:1}
+  50%  {transform:scaleY(1);transform-origin:top;opacity:1}
+  100% {transform:scaleY(1);transform-origin:bottom;opacity:0}
+}
+@keyframes pop {
+  from{opacity:0;transform:scale(.3)} to{opacity:1;transform:scale(1)}
+}
+
+/* =============================================================
+   RESPONSIVE
+============================================================= */
+@media(max-width:500px){
+  header   { padding:13px 18px }
+  .req-card{ padding:28px 20px }
+  .form-card{ padding:26px 18px }
+}
 </style>
 </head>
 <body>
-<div class="cur" id="cur"></div>
-<div class="cur-ring" id="curRing"></div>
+
+<!-- ================================================================
+     HEADER
+================================================================ -->
+<header>
+  <a href="#" class="h-logo">Uniquely Visual</a>
+  <a href="https://www.instagram.com/uniquelyvisual/" target="_blank" rel="noopener" class="h-ig">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5"/>
+      <circle cx="12" cy="12" r="4"/>
+      <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
+    </svg>
+    @uniquelyvisual
+  </a>
+</header>
 
 
-<!-- ╔══════════════════════════════════════════════════════════════╗
-     ║           ✏️  ZONA DE ARCHIVOS — EDITA AQUÍ               ║
-     ║                                                            ║
-     ║  Pon la ruta de tus archivos en las variables de abajo.   ║
-     ║  Si el archivo está en la misma carpeta que este HTML,    ║
-     ║  solo escribe el nombre del archivo.                      ║
-     ║  Si está en una subcarpeta, escribe: carpeta/archivo.mp4  ║
-     ║                                                            ║
-     ║  Ejemplos:                                                 ║
-     ║    "mi-reel.mp4"          → misma carpeta                 ║
-     ║    "videos/reel.mp4"      → subcarpeta llamada videos     ║
-     ║    "https://..."          → link directo de internet      ║
-     ╚══════════════════════════════════════════════════════════════╝ -->
-<script>
-  const MIS_ARCHIVOS = {
-
-    // ─────────────────────────────────────────────────────────────
-    // VIDEO DEL REEL (formato 9:16, máx ~25MB recomendado)
-    // Escribe aquí el nombre o ruta de tu video:
-    // ─────────────────────────────────────────────────────────────
-    video: "marina la tara 2026.mp4",
-
-    // ─────────────────────────────────────────────────────────────
-    // FOTO DE PERFIL que aparece en el teléfono del hero
-    // Puede ser .jpg, .png o .webp
-    // Si no tienes, deja las comillas vacías: ""
-    // ─────────────────────────────────────────────────────────────
-    fotoPerfil: "",
-
-    // ─────────────────────────────────────────────────────────────
-    // TEXTO del nombre de Instagram que aparece en el teléfono
-    // Pon tu @ real aquí:
-    // ─────────────────────────────────────────────────────────────
-    instagramNombre: "uniquelyvisual",
-
-    // ─────────────────────────────────────────────────────────────
-    // LINK de tu perfil de Instagram (abre al hacer clic en Follow)
-    // ─────────────────────────────────────────────────────────────
-    instagramLink: "https://www.instagram.com/uniquelyvisual",
-
-  };
-</script>
-<!-- ╔══════════════════════════════════════════════════════════════╗
-     ║        FIN DE LA ZONA DE ARCHIVOS — NO EDITAR ABAJO       ║
-     ╚══════════════════════════════════════════════════════════════╝ -->
-
-
-<!-- HERO -->
+<!-- ================================================================
+     HERO
+================================================================ -->
 <section class="hero">
-  <div class="hbc hbc1"></div>
-  <div class="hbc hbc2"></div>
-  <div class="hbc hbc3"></div>
-  <div class="hero-left">
-    <!-- EDIT: Badge pill text -->
-    <div class="badge"><span class="bdot"></span> Monthly Giveaway · Free Session</div>
-    <h1 class="hero-title">
-      <!-- EDIT: Hero title line 1 -->
-      Win a
-      <!-- EDIT: Hero title line 2 (italic colored) -->
-      <em class="l2">Photo Session</em>
-      <!-- EDIT: Hero title line 3 (small subtitle) -->
-      <span class="l3">📍 Frankfurt, Germany · Every Month</span>
+  <div class="o1 orb"></div>
+  <div class="o2 orb"></div>
+
+  <!-- ─── FRANKFURT SKYLINE SVG ─── -->
+  <div class="skyline-wrap">
+    <svg viewBox="0 0 1440 460" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+      <defs>
+        <linearGradient id="sg1" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#C8972A" stop-opacity="0.65"/>
+          <stop offset="55%"  stop-color="#C8972A" stop-opacity="0.25"/>
+          <stop offset="100%" stop-color="#C8972A" stop-opacity="0.04"/>
+        </linearGradient>
+        <linearGradient id="sg2" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#E8B84A" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#E8B84A" stop-opacity="0.04"/>
+        </linearGradient>
+        <linearGradient id="sg3" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%"   stop-color="#C8972A" stop-opacity="0.35"/>
+          <stop offset="100%" stop-color="#C8972A" stop-opacity="0.02"/>
+        </linearGradient>
+      </defs>
+
+      <!-- ── COMMERZBANK TOWER (centrepiece, tallest) ── -->
+      <g fill="url(#sg1)">
+        <rect x="606" y="55" width="54" height="405"/>
+        <!-- Spire -->
+        <polygon points="606,55 633,4 660,55"/>
+        <rect x="631" y="4" width="4" height="53"/>
+        <!-- Sky-garden notches both sides -->
+        <rect x="596" y="120" width="10" height="28" fill="#060606" opacity=".95"/>
+        <rect x="660" y="120" width="10" height="28" fill="#060606" opacity=".95"/>
+        <rect x="596" y="225" width="10" height="28" fill="#060606" opacity=".95"/>
+        <rect x="660" y="225" width="10" height="28" fill="#060606" opacity=".95"/>
+        <rect x="596" y="322" width="10" height="28" fill="#060606" opacity=".95"/>
+        <rect x="660" y="322" width="10" height="28" fill="#060606" opacity=".95"/>
+        <!-- Floor bands -->
+        <rect x="604" y="108" width="58" height="3" opacity=".45"/>
+        <rect x="604" y="166" width="58" height="3" opacity=".45"/>
+        <rect x="604" y="214" width="58" height="3" opacity=".45"/>
+        <rect x="604" y="270" width="58" height="3" opacity=".45"/>
+        <rect x="604" y="316" width="58" height="3" opacity=".45"/>
+        <rect x="604" y="370" width="58" height="3" opacity=".45"/>
+      </g>
+
+      <!-- ── MESSETURM (stepped pyramid top, left zone) ── -->
+      <g fill="url(#sg2)">
+        <rect x="392" y="155" width="62" height="305"/>
+        <rect x="402" y="116" width="42" height="44"/>
+        <rect x="410" y="82"  width="26" height="38"/>
+        <rect x="417" y="55"  width="12" height="30"/>
+        <rect x="421" y="26"  width="4"  height="32"/>
+        <!-- Bands -->
+        <rect x="390" y="210" width="66" height="3" opacity=".4"/>
+        <rect x="390" y="278" width="66" height="3" opacity=".4"/>
+        <rect x="390" y="346" width="66" height="3" opacity=".4"/>
+        <rect x="390" y="408" width="66" height="3" opacity=".4"/>
+      </g>
+
+      <!-- ── MAINTOWER (round crown) ── -->
+      <g fill="url(#sg1)">
+        <rect x="724" y="95" width="50" height="365"/>
+        <!-- Round crown -->
+        <ellipse cx="749" cy="95" rx="25" ry="16"/>
+        <rect x="747" y="52" width="4" height="46"/>
+        <!-- Observation deck ring -->
+        <rect x="720" y="106" width="58" height="9" rx="2"/>
+        <!-- Bands -->
+        <rect x="722" y="168" width="54" height="3" opacity=".4"/>
+        <rect x="722" y="244" width="54" height="3" opacity=".4"/>
+        <rect x="722" y="316" width="54" height="3" opacity=".4"/>
+        <rect x="722" y="386" width="54" height="3" opacity=".4"/>
+      </g>
+
+      <!-- ── TRIANON (sloped/stepped crown) ── -->
+      <g fill="url(#sg2)">
+        <rect x="822" y="168" width="52" height="292"/>
+        <rect x="830" y="132" width="36" height="40"/>
+        <rect x="838" y="100" width="20" height="36"/>
+        <polygon points="838,100 848,74 858,100"/>
+        <!-- Side recesses -->
+        <rect x="812" y="210" width="10" height="70" fill="#060606" opacity=".8"/>
+        <rect x="874" y="210" width="10" height="70" fill="#060606" opacity=".8"/>
+      </g>
+
+      <!-- ── DZ BANK TOWER ── -->
+      <g fill="url(#sg1)">
+        <rect x="910" y="182" width="48" height="278"/>
+        <rect x="906" y="158" width="56" height="30"/>
+        <polygon points="910,158 934,130 958,158"/>
+        <rect x="932" y="124" width="4" height="30"/>
+        <!-- Bands -->
+        <rect x="908" y="230" width="52" height="3" opacity=".4"/>
+        <rect x="908" y="300" width="52" height="3" opacity=".4"/>
+        <rect x="908" y="368" width="52" height="3" opacity=".4"/>
+      </g>
+
+      <!-- ── WESTEND TOWER ── -->
+      <g fill="url(#sg2)">
+        <rect x="506" y="190" width="50" height="270"/>
+        <rect x="514" y="160" width="34" height="35"/>
+        <polygon points="514,160 531,135 548,160"/>
+        <rect x="529" y="128" width="4" height="30"/>
+      </g>
+
+      <!-- ── OPERNTURM / TAUNUSANLAGE ── -->
+      <g fill="url(#sg1)">
+        <rect x="980" y="200" width="44" height="260"/>
+        <rect x="986" y="174" width="32" height="30"/>
+        <rect x="991" y="152" width="22" height="26"/>
+        <rect x="995" y="132" width="14" height="24"/>
+        <rect x="999" y="114" width="6"  height="22"/>
+      </g>
+
+      <!-- ── JAPAN CENTER / EUROTHEUM cluster ── -->
+      <g fill="url(#sg2)" opacity=".8">
+        <rect x="1048" y="215" width="42" height="245"/>
+        <rect x="1054" y="192" width="30" height="28"/>
+        <polygon points="1054,192 1069,170 1084,192"/>
+      </g>
+
+      <!-- ── MID-RISES left ── -->
+      <g fill="url(#sg3)" opacity=".85">
+        <rect x="308" y="210" width="56" height="250"/>
+        <rect x="316" y="186" width="40" height="28"/>
+        <rect x="323" y="165" width="26" height="24"/>
+      </g>
+      <g fill="url(#sg1)" opacity=".6">
+        <rect x="218" y="232" width="60" height="228"/>
+        <rect x="226" y="208" width="44" height="28"/>
+        <rect x="233" y="188" width="30" height="24"/>
+      </g>
+      <g fill="url(#sg2)" opacity=".5">
+        <rect x="132" y="252" width="52" height="208"/>
+        <rect x="140" y="230" width="36" height="26"/>
+        <rect x="147" y="212" width="22" height="22"/>
+      </g>
+      <g fill="url(#sg3)" opacity=".4">
+        <rect x="62"  y="272" width="44" height="188"/>
+        <rect x="69"  y="252" width="30" height="24"/>
+      </g>
+      <g fill="url(#sg1)" opacity=".25">
+        <rect x="4"   y="295" width="38" height="165"/>
+        <rect x="10"  y="276" width="26" height="22"/>
+      </g>
+
+      <!-- ── MID-RISES right ── -->
+      <g fill="url(#sg3)" opacity=".8">
+        <rect x="1110" y="222" width="52" height="238"/>
+        <rect x="1118" y="198" width="36" height="28"/>
+        <polygon points="1118,198 1136,176 1154,198"/>
+      </g>
+      <g fill="url(#sg1)" opacity=".65">
+        <rect x="1182" y="238" width="50" height="222"/>
+        <rect x="1189" y="216" width="36" height="26"/>
+        <rect x="1195" y="198" width="24" height="22"/>
+      </g>
+      <g fill="url(#sg2)" opacity=".5">
+        <rect x="1252" y="254" width="46" height="206"/>
+        <rect x="1259" y="234" width="32" height="24"/>
+      </g>
+      <g fill="url(#sg3)" opacity=".4">
+        <rect x="1318" y="268" width="54" height="192"/>
+        <rect x="1326" y="248" width="38" height="24"/>
+      </g>
+      <g fill="url(#sg1)" opacity=".25">
+        <rect x="1390" y="285" width="50" height="175"/>
+        <rect x="1397" y="266" width="36" height="22"/>
+      </g>
+
+      <!-- ── WINDOW LIGHTS (amber glow dots) ── -->
+      <g fill="rgba(244,217,138,.5)">
+        <!-- Commerzbank -->
+        <rect x="614" y="72"  width="5" height="5"/> <rect x="628" y="72"  width="5" height="5"/> <rect x="642" y="72"  width="5" height="5"/>
+        <rect x="614" y="130" width="5" height="5"/> <rect x="642" y="145" width="5" height="5"/>
+        <rect x="628" y="184" width="5" height="5"/> <rect x="614" y="238" width="5" height="5"/>
+        <rect x="642" y="285" width="5" height="5"/> <rect x="628" y="335" width="5" height="5"/>
+        <rect x="614" y="380" width="5" height="5"/> <rect x="642" y="395" width="5" height="5"/>
+        <!-- Messeturm -->
+        <rect x="405" y="172" width="4" height="4"/> <rect x="420" y="172" width="4" height="4"/>
+        <rect x="412" y="236" width="4" height="4"/> <rect x="427" y="300" width="4" height="4"/>
+        <rect x="405" y="364" width="4" height="4"/> <rect x="427" y="414" width="4" height="4"/>
+        <!-- Maintower -->
+        <rect x="732" y="118" width="4" height="4"/> <rect x="748" y="148" width="4" height="4"/>
+        <rect x="732" y="192" width="4" height="4"/> <rect x="760" y="260" width="4" height="4"/>
+        <rect x="748" y="332" width="4" height="4"/> <rect x="732" y="395" width="4" height="4"/>
+        <!-- Trianon -->
+        <rect x="832" y="185" width="4" height="4"/> <rect x="850" y="220" width="4" height="4"/>
+        <rect x="840" y="280" width="4" height="4"/> <rect x="855" y="340" width="4" height="4"/>
+        <!-- DZ Bank -->
+        <rect x="920" y="200" width="4" height="4"/> <rect x="938" y="248" width="4" height="4"/>
+        <rect x="920" y="316" width="4" height="4"/> <rect x="938" y="382" width="4" height="4"/>
+      </g>
+
+      <!-- ── Ground line ── -->
+      <rect x="0" y="456" width="1440" height="4" fill="url(#sg3)" opacity=".5"/>
+    </svg>
+  </div>
+
+  <div class="hero-atmo"></div>
+
+  <!-- Copy -->
+  <div class="hero-copy">
+    <!-- ✏️ Change city / season here -->
+    <p class="eyebrow">Frankfurt am Main · Germany · 2026</p>
+
+    <h1 class="h1">
+      WIN A<br><em>FREE SHOOT</em>
     </h1>
-    <!-- EDIT: Hero description paragraph -->
-    <p class="hero-desc">Enter every month for a chance to win a full professional photography session — completely free. Follow on Instagram and register below.</p>
-    <div class="hero-btns">
-      <!-- EDIT: Main button text -->
-      <a href="#enter" class="btn-main">Enter Now →</a>
-      <!-- EDIT: Secondary button text -->
-      <a href="#how" class="btn-sec">How It Works</a>
+
+    <p class="hero-sub">
+      Every month for 6 months, one person wins a professional<br>
+      photo session + a short reel — right here in Frankfurt.
+    </p>
+
+    <div class="pills">
+      <span class="pill"><span class="pill-dot"></span>Photo Session</span>
+      <span class="pill"><span class="pill-dot"></span>Instagram &amp; TikTok Reel</span>
+      <span class="pill"><span class="pill-dot"></span>6 Monthly Draws</span>
+      <span class="pill"><span class="pill-dot"></span>Frankfurt</span>
     </div>
+
+    <a href="#enter" class="hero-cta">Enter the Giveaway ↓</a>
   </div>
 
-  <div class="hero-right">
-    <div class="phone">
-      <div class="phone-notch"></div>
-      <div class="phone-screen">
-        <div class="ig-hdr">
-          <div class="ig-av">
-            <!-- Profile photo set automatically from MIS_ARCHIVOS.fotoPerfil -->
-            <div class="ig-av-in" id="igAvIn">📸</div>
-          </div>
-          <div>
-            <!-- Instagram name set automatically from MIS_ARCHIVOS.instagramNombre -->
-            <div class="ig-nm" id="igNombre">photographer.ffm</div>
-          </div>
-          <!-- Follow button links to MIS_ARCHIVOS.instagramLink -->
-          <a id="igFollowBtn" href="#" target="_blank" class="ig-fb">Follow</a>
-        </div>
-        <div class="ph-vis"><div class="cam-circle"><div style="font-size:52px">📷</div></div></div>
-        <div class="ph-cap">
-          <!-- EDIT: Hashtags on the phone mockup -->
-          <div class="ph-tags">
-            <span class="ph-tag">#FRANKFURT</span>
-            <span class="ph-tag">#GIVEAWAY</span>
-            <span class="ph-tag">#FREESESSION</span>
-          </div>
-          <!-- EDIT: Caption text on the phone mockup -->
-          <p>🎉 Monthly giveaway is OPEN! Follow + register to win a free photo session!</p>
-        </div>
-      </div>
-    </div>
-    <!-- EDIT: Floating cards text -->
-    <div class="fc fc1"><div class="fc-val">🏆 1×</div><div class="fc-lbl">Winner/Month</div></div>
-    <div class="fc fc2"><div class="fc-pill">📍 Frankfurt Only</div></div>
-    <div class="fc fc3"><div class="fc-val">📸 Free</div><div class="fc-lbl">Full Session</div></div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-bar"></div>
   </div>
 </section>
 
-<!-- COUNTDOWN -->
-<div class="countdown">
-  <!-- EDIT: Countdown label -->
-  <span class="cd-label">Next Draw In</span>
-  <div class="cd-units">
-    <div class="cd-unit"><span class="cd-num" id="cdd">00</span><div class="cd-lbl">Days</div></div>
-    <span class="cd-sep">:</span>
-    <div class="cd-unit"><span class="cd-num" id="cdh">00</span><div class="cd-lbl">Hours</div></div>
-    <span class="cd-sep">:</span>
-    <div class="cd-unit"><span class="cd-num" id="cdm">00</span><div class="cd-lbl">Mins</div></div>
-    <span class="cd-sep">:</span>
-    <div class="cd-unit"><span class="cd-num" id="cds">00</span><div class="cd-lbl">Secs</div></div>
-  </div>
-  <!-- EDIT: Right badge text in countdown bar -->
-  <span class="cd-loc">📍 Frankfurt Sessions Only</span>
-</div>
 
-<!-- HOW IT WORKS -->
-<section class="section" id="how">
-  <div class="reveal">
-    <!-- EDIT: Section eyebrow label -->
-    <div class="s-eye">How It Works</div>
-    <!-- EDIT: Section title -->
-    <h2 class="s-title">4 steps to your <em>free session</em></h2>
-  </div>
-  <div class="steps">
-    <div class="step-card sc1 reveal" style="transition-delay:.05s">
-      <div class="step-num">01</div>
-      <div class="step-iw si1"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="5" stroke="#ff3d6b" stroke-width="1.8"/><circle cx="12" cy="12" r="4" stroke="#ff3d6b" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.25" fill="#ff3d6b"/></svg></div>
-      <!-- EDIT: Step 1 title and description -->
-      <div class="step-h">Follow on Instagram</div>
-      <div class="step-p">Follow our Instagram page. This is mandatory — entries without a verified follow are automatically removed before the draw.</div>
-      <div class="ig-badge"><svg width="10" height="10" viewBox="0 0 24 24" fill="#ff3d6b"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/></svg> Required to qualify</div>
-    </div>
-    <div class="step-card sc2 reveal" style="transition-delay:.1s">
-      <div class="step-num">02</div>
-      <div class="step-iw si2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#5b5ef6" stroke-width="1.8" stroke-linejoin="round"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#5b5ef6" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
-      <!-- EDIT: Step 2 title and description -->
-      <div class="step-h">Register Below</div>
-      <div class="step-p">Fill out the entry form with your name, email, and Instagram handle. Takes under a minute!</div>
-    </div>
-    <div class="step-card sc3 reveal" style="transition-delay:.15s">
-      <div class="step-num">03</div>
-      <div class="step-iw si3"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#00c896" stroke-width="1.8"/><path d="M12 7v5l3.5 3.5" stroke="#00c896" stroke-width="1.8" stroke-linecap="round"/></svg></div>
-      <!-- EDIT: Step 3 title and description -->
-      <div class="step-h">Wait for the Draw</div>
-      <div class="step-p">On the last day of each month, one winner is selected randomly from all verified follower entries.</div>
-    </div>
-    <div class="step-card sc4 reveal" style="transition-delay:.2s">
-      <div class="step-num">04</div>
-      <div class="step-iw si4"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="#ff9900" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
-      <!-- EDIT: Step 4 title and description -->
-      <div class="step-h">Win & Book!</div>
-      <div class="step-p">We contact the winner by email to book your free professional photography session in Frankfurt. 100% free.</div>
+<!-- ================================================================
+     WHAT YOU WIN
+================================================================ -->
+<section class="sec prize-sec ruled">
+  <div class="sec-inner sec-center">
+    <p class="sec-label rev">The prize</p>
+    <h2 class="sec-title rev d1">What You Win</h2>
+    <p class="sec-body rev d2">
+      One winner every month. One full creative session with Uniquely Visual —
+      captured, edited and delivered ready to post.
+    </p>
+
+    <div class="prize-grid">
+      <div class="pc rev d1">
+        <div class="pc-icon">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="6" width="18" height="14" rx="2"/>
+            <circle cx="12" cy="13" r="4"/>
+            <path d="M9 6l1.5-2h3L15 6"/>
+          </svg>
+        </div>
+        <h3>Photo Session</h3>
+        <p>A full outdoor shoot in Frankfurt — professional lighting, direction and edited gallery ready to post.</p>
+      </div>
+
+      <div class="pc rev d2">
+        <div class="pc-icon">
+          <svg viewBox="0 0 24 24">
+            <rect x="2" y="4" width="16" height="16" rx="2"/>
+            <polygon points="22 8 22 16 18 13 18 11 22 8"/>
+            <line x1="9" y1="9" x2="9" y2="15"/>
+            <line x1="12" y1="7" x2="12" y2="17"/>
+          </svg>
+        </div>
+        <h3>Short Reel</h3>
+        <p>A cinematic vertical reel edited specifically for Instagram &amp; TikTok — yours to upload and go viral.</p>
+      </div>
+
+      <div class="pc rev d3">
+        <div class="pc-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+            <circle cx="12" cy="9" r="2.5"/>
+          </svg>
+        </div>
+        <h3>Frankfurt Location</h3>
+        <p>We shoot across iconic Frankfurt spots — from the skyline to hidden gems only locals know.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- REEL / PREVIEW SECTION -->
-<section class="reel-sec">
-  <div class="reel-grid">
-    <div class="reel-text reveal">
-      <!-- EDIT: Reel section eyebrow and title -->
-      <div class="s-eye">Preview</div>
-      <h2 class="s-title">See what <em>you could win</em></h2>
-      <!-- EDIT: Reel section description -->
-      <p>A full professional photography session — in the streets, parks, and iconic spots of Frankfurt. Edited, delivered, yours to keep.</p>
-      <div class="reel-feats">
-        <!-- EDIT: 4 stat cards — change number and label -->
-        <div class="rf reveal" style="transition-delay:.1s"><div class="rf-num">30<span>+</span></div><div class="rf-lbl">Photos Delivered</div></div>
-        <div class="rf reveal" style="transition-delay:.15s"><div class="rf-num">100<span>%</span></div><div class="rf-lbl">Free of Charge</div></div>
-        <div class="rf reveal" style="transition-delay:.2s"><div class="rf-num">1<span>×</span></div><div class="rf-lbl">Winner Per Month</div></div>
-        <div class="rf reveal" style="transition-delay:.25s"><div class="rf-num" style="font-size:22px">FFM</div><div class="rf-lbl">Frankfurt Only</div></div>
+
+<!-- ================================================================
+     6-MONTH TIMELINE
+================================================================ -->
+<section class="sec timeline-sec ruled">
+  <div class="sec-inner sec-center">
+    <p class="sec-label rev">Monthly draws</p>
+    <h2 class="sec-title rev d1">6 Winners · 6 Months</h2>
+    <p class="sec-body rev d2">
+      A new giveaway opens every month. Miss one? You'll get another shot the following month.
+    </p>
+
+    <!-- ✏️ Update statuses (active / open / done) and month names to match the real calendar -->
+    <div class="months-grid">
+      <div class="mc active rev d1">
+        <span class="m-badge badge-now">Now Open</span>
+        <div class="m-num">01</div>
+        <div class="m-name">May</div>
+        <div class="m-prize">Photo + Reel</div>
+      </div>
+      <div class="mc rev d2">
+        <span class="m-badge badge-open">Coming Soon</span>
+        <div class="m-num">02</div>
+        <div class="m-name">June</div>
+        <div class="m-prize">Photo + Reel</div>
+      </div>
+      <div class="mc rev d3">
+        <span class="m-badge badge-open">Coming Soon</span>
+        <div class="m-num">03</div>
+        <div class="m-name">July</div>
+        <div class="m-prize">Photo + Reel</div>
+      </div>
+      <div class="mc rev d4">
+        <span class="m-badge badge-open">Coming Soon</span>
+        <div class="m-num">04</div>
+        <div class="m-name">August</div>
+        <div class="m-prize">Photo + Reel</div>
+      </div>
+      <div class="mc rev d5">
+        <span class="m-badge badge-open">Coming Soon</span>
+        <div class="m-num">05</div>
+        <div class="m-name">September</div>
+        <div class="m-prize">Photo + Reel</div>
+      </div>
+      <div class="mc rev d6">
+        <span class="m-badge badge-open">Coming Soon</span>
+        <div class="m-num">06</div>
+        <div class="m-name">October</div>
+        <div class="m-prize">Photo + Reel</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     INSTAGRAM REQUIREMENT
+================================================================ -->
+<section class="sec req-sec">
+  <div class="sec-inner sec-center">
+    <p class="sec-label rev">Before you enter</p>
+    <h2 class="sec-title rev d1">One Rule Only</h2>
+
+    <div class="req-card rev d2">
+      <div class="ig-blob">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1.5" fill="white" stroke="none"/>
+        </svg>
+      </div>
+      <p class="req-text">
+        To be eligible you <strong>must follow</strong> <strong>@uniquelyvisual</strong> on Instagram.<br>
+        That's it — follow us, fill the form, and you're in the draw.
+      </p>
+      <a href="https://www.instagram.com/uniquelyvisual/" target="_blank" rel="noopener" class="btn-ig">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1.2" fill="white" stroke="none"/>
+        </svg>
+        Follow @uniquelyvisual
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     VIDEO — CLIENT WORK SAMPLE (9:16)
+================================================================ -->
+<section class="sec vid-sec ruled">
+  <div class="vid-inner">
+    <p class="sec-label rev">Latest work</p>
+    <h2 class="sec-title rev d1">See the Result</h2>
+    <p class="sec-body rev d2" style="margin:0 auto">
+      A glimpse of what a Uniquely Visual session looks like —
+      real work from a recent client.
+    </p>
+
+    <div class="vid-wrap rev d3">
+      <!--
+        ════════════════════════════════════════════
+        ✏️ VIDEO — CHANGE ONLY THIS ONE LINE:
+           const VIDEO_SOURCE = "your-video.mp4";
+           Accepts: local .mp4 path  OR  direct URL
+        ════════════════════════════════════════════
+      -->
+      <video id="the-video" autoplay muted loop playsinline controls></video>
+      <div class="vid-ph" id="the-ph">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="5 3 19 12 5 21 5 3"/>
+        </svg>
+        <span></span>
       </div>
     </div>
 
-    <!-- VIDEO PLAYER 9:16 — video loaded from MIS_ARCHIVOS.video -->
-    <div class="reveal" style="transition-delay:.2s">
-      <div class="reel-phone" id="reelPhone">
+    <p class="vid-label rev d4">Shot &amp; edited by Uniquely Visual · Frankfurt</p>
+  </div>
+</section>
 
-        <!-- Video element — src is set automatically from MIS_ARCHIVOS.video -->
-        <video id="reelVideo"
-          style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:28px;display:none"
-          playsinline loop preload="metadata">
-        </video>
 
-        <!-- Placeholder shown if video file is not found -->
-        <div class="reel-inner" id="reelPh">
-          <div style="font-size:48px;margin-bottom:12px">🎬</div>
-          <p style="color:#aaa;font-size:12px;font-family:'Syne',sans-serif;font-weight:700;text-align:center;padding:0 20px;line-height:1.6">
-            Pon tu video en<br>
-            <code style="color:var(--accent);background:rgba(255,61,107,.12);padding:3px 8px;border-radius:5px;font-size:11px">MIS_ARCHIVOS.video</code>
-          </p>
+<!-- ================================================================
+     ENTRY FORM
+================================================================ -->
+<section class="sec form-sec ruled" id="enter">
+  <div class="form-inner">
+    <div class="form-head rev">
+      <p class="sec-label">Enter now</p>
+      <h2 class="sec-title">Join the Draw</h2>
+      <p style="color:var(--cream-50);font-size:.88rem;margin-top:-6px">
+        Fill in the form below — one entry per person per month.
+      </p>
+    </div>
+
+    <div class="form-card rev d1">
+
+      <!-- Success state (hidden by default) -->
+      <div class="success" id="success">
+        <div class="suc-icon">
+          <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <h3 class="suc-title">You're In!</h3>
+        <p class="suc-text">
+          Your entry is confirmed for this month's draw. Good luck!<br>
+          Follow us on Instagram — we announce the winner there.
+        </p>
+      </div>
+
+      <!--
+        ════════════════════════════════════════════════════════
+        FORMSPREE SETUP — do this before publishing
+        ════════════════════════════════════════════════════════
+        STEP 1: Go to https://formspree.io
+        STEP 2: Create a free account with your email
+        STEP 3: Click "New Form" → name it "Frankfurt Giveaway"
+        STEP 4: Copy your Form ID (e.g. xpwzqgkn)
+        STEP 5: Replace YOUR_FORM_ID below with your real ID
+        Done! Every entry lands directly in your inbox.
+        ════════════════════════════════════════════════════════
+      -->
+      <form id="the-form" action="https://formspree.io/f/meevkrnn" method="POST" novalidate>
+        <input type="hidden" name="_subject"  value="New Giveaway Entry — Uniquely Visual Frankfurt"/>
+        <input type="hidden" name="_language" value="en"/>
+
+        <div class="fg">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Your full name" autocomplete="name" required/>
+          <span class="hint" id="h-name">Please enter your full name.</span>
         </div>
 
-        <!-- Play / Pause button center -->
-        <button id="vPlayBtn" class="vcenter-btn" style="display:none">
-          <svg id="vPlayIcon" width="20" height="22" viewBox="0 0 20 22" fill="none"><path d="M2 2l16 9-16 9V2z" fill="#fff"/></svg>
+        <div class="fg">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="you@email.com" autocomplete="email" required/>
+          <span class="hint" id="h-email">Please enter a valid email address.</span>
+        </div>
+
+        <div class="fg">
+          <!-- ✏️ Pre-filled with Frankfurt — leave editable -->
+          <label for="city">City</label>
+          <input type="text" id="city" name="city" value="Frankfurt" placeholder="Your city" required/>
+          <span class="hint" id="h-city">Please enter your city.</span>
+        </div>
+
+        <div class="fg">
+          <label for="ig">Your Instagram Handle</label>
+          <input type="text" id="ig" name="instagram" placeholder="@yourhandle" required/>
+          <span class="hint" id="h-ig">Please enter your Instagram handle so we can verify you follow us.</span>
+        </div>
+
+        <div class="check-row">
+          <input type="checkbox" id="chk" name="follows_instagram" required/>
+          <label for="chk" class="check-txt">
+            I confirm I follow <strong>@uniquelyvisual</strong> on Instagram
+            and I accept the giveaway terms.
+          </label>
+        </div>
+
+        <button type="submit" class="btn-sub" id="btn-sub" disabled>
+          Enter This Month's Giveaway ✦
         </button>
+      </form>
 
-        <!-- Duration badge top-right -->
-        <span id="vDur" class="vdur" style="display:none">0:00</span>
-
-        <!-- Bottom controls -->
-        <div class="reel-bot" id="vControls" style="display:none">
-          <div class="reel-prog" id="vProgBar">
-            <div class="reel-pb" id="vPb"></div>
-          </div>
-          <div style="display:flex;align-items:center;justify-content:space-between">
-            <!-- EDIT: Caption at the bottom of the video player -->
-            <div class="reel-meta">Win a <span>Free Session</span> · Frankfurt 📍</div>
-            <div style="display:flex;align-items:center;gap:8px">
-              <!-- Mute button -->
-              <button id="vMute" title="Mute"
-                style="background:rgba(255,255,255,.12);border:none;border-radius:50%;width:28px;height:28px;cursor:pointer;display:flex;align-items:center;justify-content:center">
-                <svg id="vMuteIcon" width="13" height="13" viewBox="0 0 24 24" fill="none">
-                  <path d="M11 5L6 9H2v6h4l5 4V5z" fill="#fff"/>
-                  <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-              </button>
-              <span id="vTime" style="color:#fff;font-size:10px;font-family:'Syne',sans-serif;font-weight:700">0:00</span>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 </section>
 
-<!-- FORM SECTION -->
-<section class="form-sec" id="enter">
-  <div class="form-left reveal">
-    <!-- EDIT: Form section eyebrow and title -->
-    <div class="s-eye">Enter the Draw</div>
-    <h2 class="s-title">Register for this month's <em>giveaway</em></h2>
-    <!-- EDIT: Form left description -->
-    <p>Fill in your details and confirm your Instagram follow. We verify it automatically before every draw.</p>
-    <div class="info-cards">
-      <!-- EDIT: 3 info cards — icon, title, description -->
-      <div class="ic ic-pink">
-        <div class="ic-icon">📸</div>
-        <div><h4>Instagram Follow Required</h4><p>Your entry is <strong>automatically disqualified</strong> if you don't follow us on Instagram at the time of the draw.</p></div>
-      </div>
-      <div class="ic ic-blue">
-        <div class="ic-icon">📍</div>
-        <div><h4>Frankfurt, Germany Only</h4><p>Sessions are exclusively held in Frankfurt. You must be able to attend in person.</p></div>
-      </div>
-      <div class="ic ic-green">
-        <div class="ic-icon">🏆</div>
-        <div><h4>One Winner Every Month</h4><p>Draw happens on the last day of each month. Winner notified by email within 24 hours.</p></div>
-      </div>
-    </div>
-  </div>
 
-  <div class="reveal" style="transition-delay:.15s">
-    <form class="gform" id="gform" onsubmit="handleSubmit(event)">
-      <div class="frow">
-        <div class="fg">
-          <!-- EDIT: Field label and placeholder -->
-          <label for="fn">First Name</label>
-          <input type="text" id="fn" placeholder="Sofia" required/>
-        </div>
-        <div class="fg">
-          <!-- EDIT: Field label and placeholder -->
-          <label for="ln">Last Name</label>
-          <input type="text" id="ln" placeholder="Müller" required/>
-        </div>
-      </div>
-      <div class="fg">
-        <!-- EDIT: Field label and placeholder -->
-        <label for="em">Email Address</label>
-        <input type="email" id="em" placeholder="sofia@email.com" required/>
-      </div>
-      <div class="fg">
-        <!-- EDIT: Field label and placeholder -->
-        <label for="ig">Instagram Handle</label>
-        <input type="text" id="ig" placeholder="@yourhandle" required/>
-      </div>
-      <div class="fg">
-        <!-- EDIT: Field label and placeholder -->
-        <label for="ct">Your City</label>
-        <input type="text" id="ct" placeholder="e.g. Frankfurt, Offenbach…" required/>
-      </div>
-      <div class="fg">
-        <!-- EDIT: Dropdown — add or remove <option> months as needed -->
-        <label for="mo">Draw Month</label>
-        <select id="mo" required>
-          <option value="" disabled selected>Select a month</option>
-          <option>May 2026</option>
-          <option>June 2026</option>
-          <option>July 2026</option>
-          <option>August 2026</option>
-          <option>September 2026</option>
-        </select>
-      </div>
-      <!-- EDIT: Checkbox texts -->
-      <div class="chk-row">
-        <input type="checkbox" id="chkIg" required/>
-        <label for="chkIg">I confirm I am currently following the photographer on Instagram and understand my entry will be disqualified if I unfollow before the draw.</label>
-      </div>
-      <div class="chk-row">
-        <input type="checkbox" id="chkTe" required/>
-        <label for="chkTe">I agree to the <a href="#">Terms & Conditions</a> and confirm I can attend a session in Frankfurt, Germany.</label>
-      </div>
-      <div class="err-box" id="errBox">⚠️ Please complete all fields and confirm your Instagram follow.</div>
-      <div class="err-box" id="netErrBox" style="margin-top:4px">⚠️ Connection error. Check your internet and try again.</div>
-      <!-- EDIT: Submit button text -->
-      <button type="submit" class="sub-btn" id="subBtn">
-        <span id="btnText">Submit My Entry</span>
-        <svg id="btnArrow" width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M3.75 9h10.5M9 4.5L13.5 9 9 13.5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <svg id="btnSpin" style="display:none;animation:spinIcon .8s linear infinite" width="18" height="18" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="7" stroke="rgba(255,255,255,.3)" stroke-width="2"/><path d="M9 2a7 7 0 0 1 7 7" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
-      </button>
-    </form>
-    <!-- EDIT: Success message texts -->
-    <div class="ok-box" id="okBox">
-      <div style="font-size:52px">🎉</div>
-      <h3>You're <em>in!</em></h3>
-      <p>Entry confirmed! We'll verify your Instagram follow before the draw on the last day of the month. Good luck! 🤞</p>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
+<!-- ================================================================
+     FOOTER
+================================================================ -->
 <footer>
-  <!-- EDIT: Footer brand name — colored part is inside <span> -->
-  <div class="foot-brand">Photo<span>FFM</span></div>
-  <!-- EDIT: Footer links — change text and href -->
-  <ul class="foot-links">
-    <li><a href="#">Frankfurt Only</a></li>
-    <li><a id="footIgLink" href="#">Instagram</a></li>
-    <li><a href="#">Terms</a></li>
-  </ul>
-  <!-- EDIT: Footer copyright text -->
-  <span class="foot-copy">© 2026 Monthly Giveaway</span>
+  <div class="ft-brand">Uniquely Visual</div>
+  <div class="ft-city">Frankfurt am Main · Germany</div>
+
+  <a href="https://www.instagram.com/uniquelyvisual/" target="_blank" rel="noopener" class="ft-link">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2" y="2" width="20" height="20" rx="5"/>
+      <circle cx="12" cy="12" r="4"/>
+      <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/>
+    </svg>
+    @uniquelyvisual
+  </a>
+
+  <div class="ft-sep"></div>
+
+  <p class="ft-legal">
+    By entering you accept the giveaway rules. One entry per person per monthly draw.
+    The giveaway runs for 6 consecutive months. Winners are announced on Instagram.
+    This promotion is not sponsored, endorsed or administered by Instagram or Meta Platforms, Inc.
+  </p>
+
+  <!-- ✏️ Update year if needed -->
+  <p class="ft-cr">Created by Uniquely Visual · @uniquelyvisual · Frankfurt 2026</p>
 </footer>
 
+
+<!-- ================================================================
+     JAVASCRIPT
+================================================================ -->
 <script>
-/* ── Apply MIS_ARCHIVOS values to the page ── */
-document.addEventListener('DOMContentLoaded', function() {
-  // Instagram name
-  if (MIS_ARCHIVOS.instagramNombre) {
-    document.getElementById('igNombre').textContent = MIS_ARCHIVOS.instagramNombre;
-  }
-  // Instagram follow link
-  if (MIS_ARCHIVOS.instagramLink) {
-    document.getElementById('igFollowBtn').href = MIS_ARCHIVOS.instagramLink;
-    document.getElementById('footIgLink').href  = MIS_ARCHIVOS.instagramLink;
-  }
-  // Profile photo
-  if (MIS_ARCHIVOS.fotoPerfil) {
-    const av = document.getElementById('igAvIn');
-    av.innerHTML = '';
-    av.style.background = 'none';
-    const img = document.createElement('img');
-    img.src = MIS_ARCHIVOS.fotoPerfil;
-    img.style.cssText = 'width:100%;height:100%;object-fit:cover;border-radius:50%';
-    av.appendChild(img);
-  }
-  // Video
-  if (MIS_ARCHIVOS.video) {
-    document.getElementById('reelVideo').src = MIS_ARCHIVOS.video;
-  }
-});
+/* ════════════════════════════════════════════════════════════
+   ✏️ ONLY CHANGE THIS ONE LINE to add your video.
+   Accepts a local .mp4 filename ("client-reel.mp4")
+   or any direct video URL.
+   Leave empty ("") to show the placeholder.
+════════════════════════════════════════════════════════════ */
+const VIDEO_SOURCE = "marina la tara 2026.mp4";  // ← change only here
 
-/* ── Cursor ── */
-const cur = document.getElementById('cur'), ring = document.getElementById('curRing');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove', e => { mx=e.clientX; my=e.clientY; cur.style.left=mx+'px'; cur.style.top=my+'px'; });
-(function loop(){ rx+=(mx-rx)*.12; ry+=(my-ry)*.12; ring.style.left=rx+'px'; ring.style.top=ry+'px'; requestAnimationFrame(loop); })();
-
-/* ── Countdown ── */
-function pad(n){ return String(n).padStart(2,'0'); }
-function tick(){
-  const now=new Date(), end=new Date(now.getFullYear(),now.getMonth()+1,0,23,59,59);
-  let d=Math.max(0,Math.floor((end-now)/1000));
-  const days=Math.floor(d/86400); d-=days*86400;
-  const h=Math.floor(d/3600); d-=h*3600;
-  const m=Math.floor(d/60); const s=d-m*60;
-  document.getElementById('cdd').textContent=pad(days);
-  document.getElementById('cdh').textContent=pad(h);
-  document.getElementById('cdm').textContent=pad(m);
-  document.getElementById('cds').textContent=pad(s);
-}
-tick(); setInterval(tick,1000);
-
-/* ── Video Player ── */
+/* ── Video init ── */
 (function(){
-  const video    = document.getElementById('reelVideo');
-  const ph       = document.getElementById('reelPh');
-  const playBtn  = document.getElementById('vPlayBtn');
-  const playIcon = document.getElementById('vPlayIcon');
-  const controls = document.getElementById('vControls');
-  const durBadge = document.getElementById('vDur');
-  const progBar  = document.getElementById('vProgBar');
-  const pb       = document.getElementById('vPb');
-  const muteBtn  = document.getElementById('vMute');
-  const muteIcon = document.getElementById('vMuteIcon');
-  const timeDisp = document.getElementById('vTime');
-  const phone    = document.getElementById('reelPhone');
-  let hideT, loaded = false;
-
-  function fmt(s){ s=Math.floor(s||0); return Math.floor(s/60)+':'+(s%60<10?'0':'')+s%60; }
-
-  function onLoaded(){
-    if(loaded) return; loaded=true;
-    ph.style.display='none';
-    video.style.display='block';
-    playBtn.style.display='flex';
-    controls.style.display='block';
-    durBadge.style.display='block';
-    durBadge.textContent=fmt(video.duration);
-    video.play().catch(()=>{});
-    setIcon(false);
-    showBtn(false);
-  }
-
-  function setIcon(paused){
-    playIcon.innerHTML = paused
-      ? '<path d="M2 2l16 9-16 9V2z" fill="#fff"/>'
-      : '<rect x="3" y="2" width="5" height="16" rx="1.5" fill="#fff"/><rect x="12" y="2" width="5" height="16" rx="1.5" fill="#fff"/>';
-  }
-
-  function showBtn(keep){
-    playBtn.style.opacity='1';
-    clearTimeout(hideT);
-    if(!keep && !video.paused){
-      hideT=setTimeout(()=>{ playBtn.style.opacity='0'; },2200);
-    }
-  }
-
-  video.addEventListener('loadedmetadata', onLoaded);
-  video.addEventListener('canplay', onLoaded);
-  // Silent error — placeholder stays if file not found
-  video.addEventListener('error', ()=>{ loaded=false; });
-
-  phone.addEventListener('mouseenter', ()=>{ if(loaded) showBtn(video.paused); });
-  phone.addEventListener('mouseleave', ()=>{ if(loaded && !video.paused) playBtn.style.opacity='0'; });
-
-  playBtn.addEventListener('click', ()=>{
-    if(video.paused){ video.play(); setIcon(false); showBtn(false); }
-    else { video.pause(); setIcon(true); showBtn(true); }
-  });
-
-  video.addEventListener('timeupdate', ()=>{
-    if(!video.duration) return;
-    pb.style.width=(video.currentTime/video.duration*100)+'%';
-    timeDisp.textContent=fmt(video.currentTime);
-  });
-
-  progBar.addEventListener('click', function(e){
-    if(!video.duration) return;
-    const r=this.getBoundingClientRect();
-    video.currentTime=((e.clientX-r.left)/r.width)*video.duration;
-  });
-
-  muteBtn.addEventListener('click', ()=>{
-    video.muted=!video.muted;
-    muteIcon.innerHTML=video.muted
-      ? '<path d="M11 5L6 9H2v6h4l5 4V5z" fill="#fff"/><line x1="23" y1="9" x2="17" y2="15" stroke="#fff" stroke-width="2" stroke-linecap="round"/><line x1="17" y1="9" x2="23" y2="15" stroke="#fff" stroke-width="2" stroke-linecap="round"/>'
-      : '<path d="M11 5L6 9H2v6h4l5 4V5z" fill="#fff"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" stroke="#fff" stroke-width="2" stroke-linecap="round"/>';
-  });
+  if (!VIDEO_SOURCE) return;
+  const v  = document.getElementById('the-video');
+  const ph = document.getElementById('the-ph');
+  v.src = VIDEO_SOURCE;
+  v.style.display = 'block';
+  if (ph) ph.style.display = 'none';
 })();
 
-/* ── Scroll reveal ── */
-const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.1});
-document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+/* ── Real-time validation ── */
+const form  = document.getElementById('the-form');
+const btn   = document.getElementById('btn-sub');
+const fName = document.getElementById('name');
+const fMail = document.getElementById('email');
+const fCity = document.getElementById('city');
+const fIg   = document.getElementById('ig');
+const fChk  = document.getElementById('chk');
 
-/* ── Instagram @ auto-prefix ── */
-document.getElementById('ig').addEventListener('input',function(){
-  if(this.value && !this.value.startsWith('@')) this.value='@'+this.value;
+const validEmail = v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+
+function vf(inp, ok, hintId) {
+  const h = document.getElementById(hintId);
+  if (!inp.value.trim()) { inp.classList.remove('valid','invalid'); h.classList.remove('show'); return; }
+  inp.classList.toggle('valid', ok);
+  inp.classList.toggle('invalid', !ok);
+  h.classList.toggle('show', !ok);
+}
+
+function check() {
+  const ok =
+    fName.value.trim().length >= 2 &&
+    validEmail(fMail.value)        &&
+    fCity.value.trim().length >= 2 &&
+    fIg.value.trim().length  >= 2  &&
+    fChk.checked;
+  btn.disabled = !ok;
+}
+
+fName.addEventListener('input', () => { vf(fName, fName.value.trim().length >= 2, 'h-name'); check() });
+fMail.addEventListener('input', () => { vf(fMail, validEmail(fMail.value),         'h-email'); check() });
+fCity.addEventListener('input', () => { vf(fCity, fCity.value.trim().length >= 2,   'h-city'); check() });
+fIg.addEventListener  ('input', () => { vf(fIg,   fIg.value.trim().length >= 2,     'h-ig');   check() });
+fChk.addEventListener ('change', check);
+
+/* ── AJAX submit to Formspree ── */
+form.addEventListener('submit', async e => {
+  e.preventDefault();
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  try {
+    const res = await fetch(form.action, {
+      method:'POST', body:new FormData(form), headers:{Accept:'application/json'}
+    });
+    if (res.ok) {
+      showSuccess();
+    } else {
+      const j = await res.json();
+      alert('Something went wrong: ' + (j.errors?.map(x=>x.message).join(', ') || 'Unknown error'));
+      btn.disabled = false;
+      btn.textContent = 'Enter This Month\'s Giveaway ✦';
+    }
+  } catch {
+    alert('Network error — please try again.');
+    btn.disabled = false;
+    btn.textContent = 'Enter This Month\'s Giveaway ✦';
+  }
 });
 
-/* ── Form submission → Google Apps Script ── */
-const SCRIPT_URL='https://script.google.com/macros/s/AKfycbzXQjrnfs7b98vO_oP7EWwvb1j6jVLxxPqCDvtMpx2cNmaJaD8r0CeXoJNE8Tlgqz6zIA/exec';
-
-function setLoading(on){
-  const btn=document.getElementById('subBtn');
-  btn.disabled=on; btn.style.opacity=on?'.75':'1';
-  document.getElementById('btnText').textContent=on?'Sending…':'Submit My Entry';
-  document.getElementById('btnArrow').style.display=on?'none':'inline';
-  document.getElementById('btnSpin').style.display=on?'inline':'none';
+function showSuccess() {
+  form.style.display = 'none';
+  document.getElementById('success').classList.add('show');
+  fireConfetti();
+  document.getElementById('enter').scrollIntoView({behavior:'smooth', block:'start'});
 }
 
-async function handleSubmit(e){
-  e.preventDefault();
-  if(!document.getElementById('chkIg').checked||!document.getElementById('chkTe').checked){
-    const b=document.getElementById('errBox'); b.classList.add('show');
-    setTimeout(()=>b.classList.remove('show'),4000); return;
-  }
-  setLoading(true);
-  document.getElementById('netErrBox').classList.remove('show');
-  const fd=new FormData();
-  fd.append('firstName', document.getElementById('fn').value.trim());
-  fd.append('lastName',  document.getElementById('ln').value.trim());
-  fd.append('email',     document.getElementById('em').value.trim());
-  fd.append('instagram', document.getElementById('ig').value.trim());
-  fd.append('city',      document.getElementById('ct').value.trim());
-  fd.append('month',     document.getElementById('mo').value);
-  fd.append('timestamp', new Date().toISOString());
-  fd.append('confirmed', 'Yes — confirmed follower');
-  try{
-    await fetch(SCRIPT_URL,{method:'POST',body:fd,mode:'no-cors'});
-    setLoading(false);
-    document.getElementById('gform').style.display='none';
-    document.getElementById('okBox').classList.add('show');
-    document.getElementById('okBox').scrollIntoView({behavior:'smooth',block:'center'});
-  }catch(err){
-    setLoading(false);
-    document.getElementById('netErrBox').classList.add('show');
-  }
+/* ── Confetti in brand colours ── */
+function fireConfetti() {
+  if (typeof confetti === 'undefined') return;
+  const cols = ['#C8972A','#E6B84A','#F4D98A','#E07020','#FF6B2B','#fff'];
+  confetti({ particleCount:120, spread:80, origin:{y:.6}, colors:cols, startVelocity:48, ticks:320 });
+  setTimeout(() => {
+    confetti({ particleCount:70, angle:60,  spread:55, origin:{x:0,y:.7}, colors:cols });
+    confetti({ particleCount:70, angle:120, spread:55, origin:{x:1,y:.7}, colors:cols });
+  }, 260);
+  setTimeout(() =>
+    confetti({ particleCount:90, spread:100, origin:{y:.5}, colors:cols, startVelocity:30 })
+  , 620);
 }
+
+/* ── Scroll reveal ── */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target) } });
+}, { threshold:.12 });
+document.querySelectorAll('.rev').forEach(el => obs.observe(el));
 </script>
 </body>
 </html>
